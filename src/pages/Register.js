@@ -7,8 +7,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Loader from "../Component/Loader";
+import { userSignupAction } from "../reducer/asyncAuthReducer";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
+  const dispatch=useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setConfirmPass] = useState("");
@@ -23,35 +26,35 @@ const Register = () => {
       password: password,
       cPassword:cPassword
     };
-    firebaseSignUpHandler(newUser);
+    dispatch(userSignupAction(newUser))
   };
 
-  const firebaseSignUpHandler = async (newUser) => {
-    const response = await fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCEHocTUyA1ZgSbYqOi5n2n28z-nzepeFY",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: newUser.email,
-          password: newUser.password,
-          returnSecureToken: true,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-      toast.success("Registration Successful..")
-    } else {
-      const data = await response.json();
-      console.log(data.error.message);
+  // const firebaseSignUpHandler = async (newUser) => {
+  //   const response = await fetch(
+  //     "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCEHocTUyA1ZgSbYqOi5n2n28z-nzepeFY",
+  //     {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         email: newUser.email,
+  //         password: newUser.password,
+  //         returnSecureToken: true,
+  //       }),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   );
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     console.log(data);
+  //     toast.success("Registration Successful..")
+  //   } else {
+  //     const data = await response.json();
+  //     console.log(data.error.message);
 
-      setIsLoading(false);
-    }
-  };
+  //     setIsLoading(false);
+  //   }
+  // };
   return (
     <Fragment>
       <ToastContainer />

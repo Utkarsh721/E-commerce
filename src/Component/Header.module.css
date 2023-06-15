@@ -7,6 +7,11 @@
 }
 header {
   background-color: rgb(3, 3, 41);
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  height: 6rem;
+ 
 }
 header .header {
   width: 100%;

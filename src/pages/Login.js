@@ -1,48 +1,73 @@
-import  { useState } from "react";
+import { Fragment, useState } from "react";
+import styles from "./auth.module.css";
 import { useNavigate } from "react-router-dom";
+import loginImg from "../assets/Login.jpg";
+import Card from "../Component/Card";
+
 
 const Login = () => {
-const [email, setEmail]= useState("")
-const[password, setPassword]= useState("")
-const navigate= useNavigate()
-    const loginHandler= (event) => {
-        event.preventDefault();
-        
-        
-    const user={
-      email:email,
-     password:password,
-    }
-    console.log(user);
-    }
-    const resetPassword=() => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const loginHandler = (event) => {
+    event.preventDefault();
 
-    }
-    const register= () => {
-     navigate("/register")
-    }
+    const user = {
+      email: email,
+      password: password,
+    };
+    console.log(user);
+  };
+
+  const register = () => {
+    navigate("/register");
+  };
+  const resetPassword = () => {
+    navigate("/reset");
+  };
   return (
-    <div>
-      <form onSubmit={loginHandler}>
-        <label>Email</label>
-        <input
-         type="text" 
-         placeholder="Email" 
-         value={email}
-         onChange={(e) => setEmail(e.target.value)}/>
-        <label>Password</label>
-        <input 
-        type="password" 
-        placeholder="Password" 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}/>
-        <button type="submit">Login</button>
-        <button onClick={resetPassword}>Forget Password</button>
-        <button onClick={register}>Register</button>
+    <Fragment>
+      <section className={styles.auth}>
     
-      </form>
-    </div>
+      <Card>
+        <div className={styles.form}>
+          <h2>Login</h2>
+          <form onSubmit={loginHandler}>
+            <input
+              type="text"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="--btn --btn-primary 
+              --btn-block"
+            >
+              Login
+            </button>
+            
+            <button onClick={resetPassword}  className={styles.btn1} >Forget Password</button>
+            <button onClick={register} className={styles.btn2} >Register</button>
+            
+          </form>
+        </div>
+      </Card>
+      <div className={styles.img}>
+          <img src={loginImg} alt="Login" width="400" />
+        </div>
+      </section> 
+    </Fragment>
   );
 };
+ 
 
 export default Login;

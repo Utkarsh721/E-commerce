@@ -15,7 +15,6 @@ import Login from "./pages/Login";
 
 
 
-
 let App = () => {
   return (
     <Fragment>
@@ -29,6 +28,7 @@ let App = () => {
        
         <Route path="register" element={<Register />} />
         <Route path="/reset" element={<Reset />} />
+       
        
       </Routes>
       <Footer />

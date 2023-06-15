@@ -1,12 +1,14 @@
 
 import Slider from "../Component/ImageSlider/Slider";
-
+import ProductCard from "./ProductCard";
 
 const Home = () => {
-    return(
+    return  (
 <div>
 <Slider/>
+<ProductCard/>
 </div>
+  
     )
 }
 
