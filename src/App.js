@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./Component/Footer";
 import Header from "./Component/Header";
 import Home from "./pages/Home";
@@ -11,10 +11,6 @@ import Register from "./pages/Register";
 import Reset from "./pages/Reset";
 import Login from "./pages/Login";
 
-
-
-
-
 let App = () => {
   return (
     <Fragment>
@@ -25,12 +21,11 @@ let App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/store" element={<Store />} />
         <Route path="/login" element={<Login />} />
-       
-        <Route path="register" element={<Register />} />
+
+        <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<Reset />} />
-       
-       
       </Routes>
+
       <Footer />
     </Fragment>
   );

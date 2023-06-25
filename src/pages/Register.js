@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import styles from "./auth.module.css";
 import registerImg from "../assets/register.jpg";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../Component/Card";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,22 +11,22 @@ import { userSignupAction } from "../reducer/asyncAuthReducer";
 import { useDispatch } from "react-redux";
 
 const Register = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setConfirmPass] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  
 
   const registerUser = (e) => {
     e.preventDefault();
     const newUser = {
       email: email,
       password: password,
-      cPassword:cPassword
+      cPassword: cPassword,
     };
-    dispatch(userSignupAction(newUser))
+    dispatch(userSignupAction(newUser));
+    setEmail("");
+    setPassword("");
   };
 
   // const firebaseSignUpHandler = async (newUser) => {
