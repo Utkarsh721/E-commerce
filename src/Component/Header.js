@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { NavDropdown } from "react-bootstrap";
+import { getCartTotal } from "../reducer/dataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
 const logo = (
   <div className={styles.logo}>
@@ -14,19 +22,16 @@ const logo = (
     </Link>
   </div>
 );
-const cart = (
-  <span className={styles.cart}>
-    <Link to="/cart">
-      Cart
-      <FaShoppingCart size={20} />
-      <p>0</p>
-    </Link>
-  </span>
-);
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { cart, totalQuantity } = useSelector((state) => state.allCart);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [cart]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -45,9 +50,8 @@ function logout()
   
 }
 
-
   return (
-    <header>
+<header>     
       <div className={styles.header}>
         {logo}
 
@@ -75,10 +79,11 @@ function logout()
             </li>
             <li>
               <NavLink to="/store">Store</NavLink>
-            </li>
+            </li>0
             <li>
               <NavLink to="/contact">Contact Us</NavLink>
             </li>
+           
           </ul>
           <div className={styles["header-right"]} onClick={hideMenu}>
             <span className={styles.links}>
@@ -90,12 +95,14 @@ function logout()
               <NavLink to="/login">Login</NavLink>
               <NavLink to="/register">Register</NavLink>
             </span>
-            {cart}
           </div>
           NavLink
         </nav>
+        <MDBBtn color="light">
+          <Link to="/cart">Cart({totalQuantity})</Link>
+        </MDBBtn>
         <div className={styles["menu-icon"]}>
-          {cart}
+        
           <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
         </div>
       </div>
@@ -103,4 +110,4 @@ function logout()
   );
 };
 
-export default Header;
+  export default Header;

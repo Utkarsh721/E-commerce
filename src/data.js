@@ -16,94 +16,116 @@ const data =[
         id:1,
         title:"Bag",
         img:bagImg,
-        price:799
+        price:799,
+        quantity:1,
 
     },
     {
         id:2,
         title:"Shirt",
         img: ShirtImg,
-        price:499
+        price:499 ,
+        quantity:1,
+
 
     },
     {
         id:3,
         title:"Kurta",
         img: kurtaImg,
-        price:629
+        price:629 ,
+        quantity:1,
+
 
     },
     {
         id:4,
         title:"Laptop",
         img:laptopImg,
-        price:45000
+        price:45000 ,
+        quantity:1,
+
 
     },
     {
         id:5,
         title:"Mobile",
         img:mobileImg,
-        price:15000
-
+        price:15000 ,
+        quantity:1,
     },
     {
         id:6,
         title:"Shhoe",
         img:shoeImg,
-        price:2199
+        price:2199 ,
+        quantity:1,
+
 
     },
     {
         id:7,
         title:"T-Shirt",
         img:tshirt,
-        price:555
+        price:555 ,
+        quantity:1,
+
 
     },
     {
         id:8,
         title:"Shirt",
         img:wshirt,
-        price:299
+        price:299 ,
+        quantity:1,
+
 
     },
     {
         id:9,
         title:"T.V",
         img:tv,
-        price:29999
+        price:29999 ,
+        quantity:1,
+
 
     },
     {
         id:10,
         title:"Watch",
         img:watch,
-        price:15399
+        price:15399 ,
+        quantity:1,
+
 
     },
     {
         id:11,
         title:"Mobile",
         img:mobileImg,
-        price:17588
+        price:17588 ,
+        quantity:1,
+
         
         
     },
     {
         id:12,
-        title:"HEadPhone",
+        title:"HeadPhone",
         img:headphone,
-        price:250000
-
+        price:250000 ,
+        quantity:1,
     },
     {
         id:13,
         title:"Sofa",
         img:sofa,
-        price:48999
+        price:48999 ,
+        quantity:1,
+
 
     },
 ]
+
 
 export default data

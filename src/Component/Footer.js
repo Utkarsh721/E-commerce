@@ -1,16 +1,18 @@
-import React from "react";
-import classes from "./Footer.css";
+import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className={classes.main}>
-      <footer className={classes.footer}>
-        <h1>Thank you</h1>
-        <div>
-          <h3>Get in touch</h3>
+    <footer className="footer-container">
+      <div className="footer-content">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <div className="footer-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

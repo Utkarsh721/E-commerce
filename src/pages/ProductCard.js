@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import styles from './Home.module.css';
-import data from '../data'
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../reducer/dataSlice';
 
 const ProductCard = () => {
-  
+   const items = useSelector((state)=>state.allCart.items);
+   const dispatch=useDispatch()
   return (
     <div >
       <h1 className={styles.h2} >Products</h1>
@@ -15,7 +17,7 @@ const ProductCard = () => {
       <Row xs={1} md={3} className="g-4">
       
         {
-  data.map((item)=>{
+  items.map((item)=>{
   return   (<li key={item.id}>
     
     <div className={styles.containermain}>
@@ -25,14 +27,16 @@ const ProductCard = () => {
      <div className={styles.box2}>
             <h4>{item.title}</h4>
             <h4>{`Rs.${item.price}`}</h4>
-    <Button className={styles.button}>Add to Cart</Button>
+    <Button
+     className={styles.button}
+    onClick={()=>dispatch(addToCart(item))}
+    >Add to Cart</Button>
 </div>
 </div>
 </div>
 
     </li>)
-})
-}
+})}
 </Row>
 </div>
 </Card>

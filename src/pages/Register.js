@@ -15,7 +15,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setConfirmPass] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+ 
 
   const registerUser = (e) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ const Register = () => {
   return (
     <Fragment>
       <ToastContainer />
-      {isLoading && <Loader />}
+        <Loader />
       <section className={`container ${styles.auth}`}>
         <Card>
           <div className={styles.form}>

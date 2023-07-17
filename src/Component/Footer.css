@@ -1,19 +1,18 @@
-.footer {
-  background: #324b8a;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  margin-top: 30px;
-  border-radius: 15px;
-  box-shadow: #2f4374 0 10px 20px 5px;
-  padding: 5px;
+.footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
-.main {
-  display: flex;
-  background: #7e68b9;
-  margin: 0 auto;
-  padding: 1%;
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
 }
