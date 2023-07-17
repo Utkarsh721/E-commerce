@@ -12,13 +12,15 @@ export const userSignupAction = createAsyncThunk(
 );
 export const userLoginAction = createAsyncThunk(
   "userLoginAction",
-  async (credential) => {
+  async (credential, thunk) => {
     console.log(2, credential);
     const response = await apiAuthService.login(credential);
+    setTimeout(() => {
+      thunk.dispatch(getUserDataAction());
+    }, 1000);
     console.log(5, response);
     return response;
   }
-
 );
 export const userForgetpasswordAction = createAsyncThunk(
   "userForgetPasswordAction",
@@ -28,5 +30,13 @@ export const userForgetpasswordAction = createAsyncThunk(
     console.log(5, response);
     return response;
   }
-
+);
+export const getUserDataAction = createAsyncThunk(
+  "getUserDataAction",
+  async () => {
+    console.log(2);
+    const response = await apiAuthService.getUserData();
+    console.log(5, response);
+    return response;
+  }
 );
