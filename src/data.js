@@ -7,10 +7,17 @@ import mobileImg  from './assets/mobile-1.jpg';
 import shoeImg  from './assets/shoe-1.jpg';
 import tshirt  from './assets/t-shirt1.jpg';
 import wshirt  from './assets/whiteshirt-1.jpg';
-import tv  from './assets/tv-1.jpg';
-import watch  from './assets/watch-1.jpg';
-import sofa  from './assets/sofa-1.jpg';
 import headphone  from './assets/headphone-1.jpg';
+import album1 from './assets/music 1.jpg';
+import album2 from './assets/music 2.jpg';
+import album3 from './assets/music 3.jpg';
+import album4 from './assets/music 4.jpg';
+import album5 from './assets/music 5.jpg';
+import album6 from './assets/music 6.jpg';
+
+
+
+
 const data =[
     {
         id:1,
@@ -81,24 +88,8 @@ const data =[
 
 
     },
-    {
-        id:9,
-        title:"T.V",
-        img:tv,
-        price:29999 ,
-        quantity:1,
-
-
-    },
-    {
-        id:10,
-        title:"Watch",
-        img:watch,
-        price:15399 ,
-        quantity:1,
-
-
-    },
+   
+  
     {
         id:11,
         title:"Mobile",
@@ -108,24 +99,55 @@ const data =[
 
         
         
-    },
-    {
-        id:12,
-        title:"HeadPhone",
-        img:headphone,
-        price:250000 ,
-        quantity:1,
-    },
-    {
-        id:13,
-        title:"Sofa",
-        img:sofa,
-        price:48999 ,
-        quantity:1,
+    }, 
+];
 
+const album=[
+   {
+    id:13,
+    title:"Album 1",
+    img:album1,
+    price:2500 ,
+    quantity:1,
+ },
+ {
+    id:14,
+    title:"Album 2",
+    img:album2,
+    price:2499 ,
+    quantity:1,
+ },
+ {
+    id:15,
+    title:"Album 3",
+    img:album3,
+    price:599 ,
+    quantity:1,
+ },
+ {
+    id:16,
+    title:"Album 4",
+    img:album4,
+    price:1500 ,
+    quantity:1,
+ },
+ {
+    id:17,
+    title:"Album  5",
+    img:album5,
+    price:6500 ,
+    quantity:1,
+ },
+ {
+    id:18,
+    title:"Album 6",
+    img:album6,
+    price:5100 ,
+    quantity:1,
+ },
 
-    },
-]
+];
 
 
 export default data
+

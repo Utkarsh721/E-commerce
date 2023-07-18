@@ -11,19 +11,18 @@ const ProductCard = () => {
    const dispatch=useDispatch()
   return (
     <div >
-      <h1 className={styles.h2} >Products</h1>
+      <h1 className={styles.h2} >Merchandisers</h1>
       <Card>
       <div className={styles.container}>
       <Row xs={1} md={3} className="g-4">
       
         {
   items.map((item)=>{
-  return   (<li key={item.id}>
-    
+  return   (
+    <li key={item.id}>  
     <div className={styles.containermain}>
     <div className={styles.box1}>
      <img src={item.img} alt={item.title} className={styles.img}/>
-
      <div className={styles.box2}>
             <h4>{item.title}</h4>
             <h4>{`Rs.${item.price}`}</h4>
@@ -40,8 +39,10 @@ const ProductCard = () => {
 </Row>
 </div>
 </Card>
-</div>  
+</div> 
+ 
 )
+
 }
 
 
