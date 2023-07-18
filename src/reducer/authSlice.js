@@ -32,4 +32,8 @@ const authSlice = createSlice({
   },
 });
 export default authSlice;
+<<<<<<< HEAD
 export const authSliceActions = authSlice.actions;
+=======
+export const authSliceActions = authSlice.actions;
+>>>>>>> ea3310c91ac833e1dca48bcd0d2a3bfcd4cde5f5
