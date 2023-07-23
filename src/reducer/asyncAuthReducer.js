@@ -22,6 +22,24 @@ export const userLoginAction = createAsyncThunk(
     return response;
   }
 );
+export const getUserProfileAction = createAsyncThunk(
+  "getUserProfileAction",
+  async () => {
+    const response = await apiAuthService.getUserProfile();
+    return response.users[0];
+  }
+);
+
+export const updateProfileAction = createAsyncThunk(
+  "updateProfileAction",
+  async (credentials) => {
+    // console.log("2.signup data in async reducer", credentials);
+    const response = await apiAuthService.updateProfile(credentials);
+    // console.log("5.data after recieving response in async", response);
+    return response;
+  }
+);
+
 export const userForgetpasswordAction = createAsyncThunk(
   "userForgetPasswordAction",
   async (email) => {
@@ -39,8 +57,6 @@ export const getUserDataAction = createAsyncThunk(
     console.log(5, response);
     return response;
   }
-<<<<<<< HEAD
+
 );
-=======
-);
->>>>>>> ea3310c91ac833e1dca48bcd0d2a3bfcd4cde5f5
+

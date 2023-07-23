@@ -1,50 +1,89 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import styles from './Home.module.css';
-import { addToCart } from '../reducer/dataSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import * as React from "react";
+import { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { cartActions } from "../reducer/cartSlice";
 
-const ProductCard = () => {
-  const items = useSelector((state)=>state.allCart.items);
-  const dispatch=useDispatch()
-  
+const StorePage = () => {
+  const merchandise = useSelector((state) => state.cart.merchandise);
+  const albums = useSelector((state) => state.cart.album);
+  const dispatch = useDispatch();
+
+  const addMerchandiseToCart = (merchandise) => {
+    dispatch(cartActions.addMerchandiseToCart(merchandise));
+    // console.log(merchandise);
+  };
+
+  const addAlbumsClickHandler = (album) => {
+    dispatch(cartActions.addAlbumsToCart(album));
+    // console.log(album);
+  };
+
   return (
-    <div >
-      <h1 className={styles.h2} >Products</h1>
-      <Card>
-      <div className={styles.container}>
-      <Row xs={1} md={3} className="g-4">
-      
-        {
-  items.map((item)=>{
-  return   (<li key={item.id}>
-    
-    <div className={styles.containermain}>
-    <div className={styles.box1}>
-     <img src={item.img} alt={item.title} className={styles.img}/>
-
-     <div className={styles.box2}>
-            <h4>{item.title}</h4>
-            <h4>{`Rs.${item.price}`}</h4>
-    <Button
-    onClick={()=>dispatch(addToCart(item))}
-    className={styles.button}>Add to Cart</Button>
-</div>
-</div>
-</div>
-
-    </li>)
-})
-}
-</Row>
-</div>
-</Card>
-</div>  
-)
-}
-
-
-export default ProductCard;
-
+    <Fragment>
+      <h1>Music</h1>
+      <Grid container spacing={2}>
+        {albums.map((album) => (
+          <Grid sx={{ ml: 10, mt: 5 }}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                sx={{ height: 200 }}
+                image={album.img}
+                title="green iguana"
+              />
+              <CardActions>
+                <Typography size="small">Artist - The Generics</Typography>
+                <br />
+                <Button
+                  size="small"
+                  sx={{ ml: 8 }}
+                  onClick={() => addAlbumsClickHandler(album)}
+                >
+                  Add To Cart
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+      <h1>Official Merchandise</h1>
+      <Grid container spacing={2}>
+        {merchandise.map((merchandise) => (
+          <Grid sx={{ ml: 10, mt: 5 }} key={merchandise.id}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                sx={{ height: 200 }}
+                image={merchandise.img}
+                title="The Generics"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {merchandise.title}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Typography size="small">
+                  ${merchandise.price}
+                </Typography>
+                <Button
+                  size="small"
+                  sx={{ ml: 25 }}
+                  onClick={() => addMerchandiseToCart(merchandise)}
+                >
+                  Add To Cart
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Fragment>
+  );
+};
+export default StorePage;

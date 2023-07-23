@@ -1,75 +1,80 @@
-import { createSlice } from "@reduxjs/toolkit";
-import productData from "../productData";
+// import axios from "axios";
 
-const initialState = {
-  cart: [],
-  items: productData,
-  totalQuantity: 0,
-  totalPrice: 0,
-};
+// class apiDataServices {
+//   static getInstance() {
+//     return new apiDataServices();
+//   }
 
-const cartSlice = createSlice({
-  name: "cart",
-  initialState,
-  reducers: {
-    addToCart: (state, action) => {
-      let find = state.cart.findIndex((item) => item.id === action.payload.id);
-      if (find >= 0) {
-        state.cart[find].quantity += 1;
-      } else {
-        state.cart.push(action.payload);
-      }
-    },
+//   postMerchandiseData = async (data) => {
+//     try {
+//       const response = await axios.put(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${data.userLocalId}/merchandise.json`,
+//         {
+//           merchandise: data.merchandiseCart,
+//         }
+//       );
+//     } catch {
+//       // console.log("error in merchandise post");
+//     }
+//   };
 
-    getCartTotal: (state) => {
-      let { totalQuantity, totalPrice } = state.cart.reduce(
-        (cartTotal, cartItem) => {
-          console.log("carttotal", cartTotal);
-          console.log("cartitem", cartItem);
-          const { price, quantity } = cartItem;
-          console.log(price, quantity);
-          const itemTotal = price * quantity;
-          cartTotal.totalPrice += itemTotal;
-          cartTotal.totalQuantity += quantity;
-          return cartTotal;
-        },
-        {
-          totalPrice: 0,
-          totalQuantity: 0,
-        }
-      );
-      state.totalPrice = parseInt(totalPrice.toFixed(2));
-      state.totalQuantity = totalQuantity;
-    },
+//   postAlbumData = async (data) => {
+//     try {
+//       const response = await axios.put(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${data.userLocalId}/album.json`,
+//         {
+//           album: data.albumCart,
+//         }
+//       );
+//     } catch {
+//       // console.log("error in album post");
+//     }
+//   };
 
-    removeItem: (state, action) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
-    },
-    increaseItemQuantity: (state, action) => {
-      state.cart = state.cart.map((item) => {
-        if (item.id === action.payload) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      });
-    },
-    decreaseItemQuantity: (state, action) => {
-      state.cart = state.cart.map((item) => {
-        if (item.id === action.payload) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      });
-    },
-  },
-});
+//   postOrderHistoryData = async (data) => {
+//     try {
+//       const response = await axios.put(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${data.userLocalId}/order.json`,
+//         {
+//           order: data.orderCart,
+//         }
+//       );
+//     } catch {
+//       // console.log("error in orderHistory post");
+//     }
+//   };
 
-export const {
-  addToCart,
-  getCartTotal,
-  removeItem,
-  increaseItemQuantity,
-  decreaseItemQuantity,
-} = cartSlice.actions;
+//   getMerchandiseData = async (localId) => {
+//     try {
+//       const response = await axios.get(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${localId}/merchandise.json`
+//       );
+//       return response.data;
+//     } catch {
+//       // console.log("error in get merchandise data");
+//     }
+//   };
 
-export default cartSlice.reducer;
+//   getAlbumData = async (localId) => {
+//     try {
+//       const response = await axios.get(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${localId}/album.json`
+//       );
+//       return response.data;
+//     } catch {
+//       // console.log("error in get album data");
+//     }
+//   };
+
+//   getOrderData = async (localId) => {
+//     try {
+//       const response = await axios.get(
+//         `https://ecommerce-website-bff99-default-rtdb.firebaseio.com/${localId}/order.json`
+//       );
+//       return response.data;
+//     } catch {
+//       // console.log("error in get order data");
+//     }
+//   };
+// }
+// export const apiDataService = apiDataServices.getInstance();

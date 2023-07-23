@@ -7,7 +7,6 @@ import mobileImg  from './assets/mobile-1.jpg';
 import shoeImg  from './assets/shoe-1.jpg';
 import tshirt  from './assets/t-shirt1.jpg';
 import wshirt  from './assets/whiteshirt-1.jpg';
-import headphone  from './assets/headphone-1.jpg';
 import album1 from './assets/music 1.jpg';
 import album2 from './assets/music 2.jpg';
 import album3 from './assets/music 3.jpg';
