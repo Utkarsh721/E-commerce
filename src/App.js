@@ -38,40 +38,39 @@ function App() {
     dispatch(getUserProfileAction());
   }, []);
 
-  useEffect(() => {
-    if (cart.cartChanged) {
-      dispatch(
-        addMerchandiseAction({
-          userLocalId: userData.localId,
-          merchandiseCart: cartBandMerchandise,
-        })
-      );
-      dispatch(
-        addAlbumAction({
-          userLocalId: userData.localId,
-          albumCart: cartBandAlbums,
-        })
-      );
-      dispatch(
-        addOrderHistoryAction({
-          userLocalId: userData.localId,
-          orderCart: cartOrderHistory,
-        })
-      );
-    }
-  }, [cart]);
+  // useEffect(() => {
+  //   if (cart.cartChanged) {
+  //     dispatch(
+  //       addMerchandiseAction({
+  //         userLocalId: userData.localId,
+  //         merchandiseCart: cartBandMerchandise,
+  //       })
+  //     );
+  //     dispatch(
+  //       addAlbumAction({
+  //         userLocalId: userData.localId,
+  //         albumCart: cartBandAlbums,
+  //       })
+  //     );
+  //     dispatch(
+  //       addOrderHistoryAction({
+  //         userLocalId: userData.localId,
+  //         orderCart: cartOrderHistory,
+  //       })
+  //     );
+  //   }
+  // }, [cart]);
 
   useEffect(() => {
     dispatch(getUserProfileAction());
   }, []);
-  useEffect(() => {
-    if (userData) {
-      dispatch(getMerchandiseData(userData.localId));
-      dispatch(getAlbumData(userData.localId));
-      dispatch(getOrderHistoryData(userData.localId));
-    }
-  }, [userData]);
-
+  // useEffect(() => {
+  //   if (userData) {
+  //     dispatch(getMerchandiseData(userData.localId));
+  //     dispatch(getAlbumData(userData.localId));
+  //     dispatch(getOrderHistoryData(userData.localId));
+  //   }
+  // }, [userData]);
 
   return (
     <Fragment>
@@ -82,18 +81,17 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/store" element={<Store />} />
         <Route path="/login" element={<Login />} />
-        <Route  exact path="/" element={<ProductCard />} />
+        <Route exact path="/" element={<ProductCard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<Reset />} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />}></Route>
         <Route path="/updateProfile" element={<UpdateProfile />}></Route>
-    
       </Routes>
 
       <Footer />
     </Fragment>
   );
-};
+}
 
 export default App;

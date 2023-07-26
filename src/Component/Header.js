@@ -163,12 +163,12 @@ function Navbar() {
             >
               Home
             </Button>
-            {userProfileData && (
-              <MenuItem onClick={storePageHandler}>
-                <Typography textAlign="center">Store</Typography>
-              </MenuItem>
-            )}
-
+            <Button
+              sx={{ my: 2, color: "white", display: "block" }}
+              onClick={storePageHandler}
+            >
+              Store
+            </Button>
             <Button
               onClick={aboutPageHandler}
               sx={{ my: 2, color: "white", display: "block" }}
@@ -178,66 +178,57 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {userProfileData ? (
-              <Grid sx={{ display: "flex" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    width: 70,
-                    height: 30,
-                    backgroundColor: "#c2c2a3",
-                    border: "0px",
-                    borderRadius: "15px",
-                    mt: "5px",
-                    mr: "5px",
-                    "&:hover": {
-                      backgroundColor: "primary.main",
-                      opacity: [0.9, 0.8, 0.7],
-                    },
-                  }}
-                >
-                  <Badge
-                    badgeContent={
-                      cartBandMerchandise.length + cartBandAlbums.length
-                    }
-                    color="success"
-                  >
-                    <ShoppingCartIcon sx={{ margin: "auto", ml: "8px" }} />
-                  </Badge>
-                  <Typography
-                    sx={{
-                      margin: "auto",
-                      color: "white",
-                      cursor: "pointer",
-                      mr: "15px",
-                    }}
-                    onClick={cartPageHandler}
-                  >
-                    Cart
-                  </Typography>
-                </Box>
-
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    {userProfileData !== undefined ? (
-                      <Avatar alt="Remy Sharp" src={userProfileData.photoUrl} />
-                    ) : (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src="/static/images/avatar/2.jpg"
-                      />
-                    )}
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            ) : (
-              <Typography
-                sx={{ color: "white", cursor: "pointer" }}
-                onClick={signinPageHandler}
+            <Grid sx={{ display: "flex" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  width: 70,
+                  height: 30,
+                  backgroundColor: "#c2c2a3",
+                  border: "0px",
+                  borderRadius: "15px",
+                  mt: "5px",
+                  mr: "5px",
+                  "&:hover": {
+                    backgroundColor: "primary.main",
+                    opacity: [0.9, 0.8, 0.7],
+                  },
+                }}
               >
-                Sign in
-              </Typography>
-            )}
+                {/* <Badge
+                  badgeContent={
+                    cartBandMerchandise.length + cartBandAlbums.length
+                  }
+                  color="success"
+                > */}
+                <ShoppingCartIcon sx={{ margin: "auto", ml: "8px" }} />
+                {/* </Badge> */}
+                <Typography
+                  sx={{
+                    margin: "auto",
+                    color: "white",
+                    cursor: "pointer",
+                    mr: "15px",
+                  }}
+                  onClick={cartPageHandler}
+                >
+                  Cart
+                </Typography>
+              </Box>
+
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+
+            <Typography
+              sx={{ color: "white", cursor: "pointer" }}
+              onClick={signinPageHandler}
+            >
+              Sign in
+            </Typography>
 
             <Menu
               sx={{ mt: "45px" }}

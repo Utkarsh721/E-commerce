@@ -12,8 +12,8 @@ import { cartActions } from "../reducer/cartSlice";
 
 const StorePage = () => {
   const merchandise = useSelector((state) => state.cart.merchandise);
-  const albums = useSelector((state) => state.cart.album);
-  console.log(albums)
+  const albums = useSelector((state) => state.cart.albums);
+  console.log(albums);
   const dispatch = useDispatch();
 
   const addMerchandiseToCart = (merchandise) => {
@@ -69,9 +69,7 @@ const StorePage = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Typography size="small">
-                  ${merchandise.price}
-                </Typography>
+                <Typography size="small">${merchandise.price}</Typography>
                 <Button
                   size="small"
                   sx={{ ml: 25 }}
