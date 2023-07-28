@@ -10,9 +10,15 @@ const Cart = () => {
   const [totalMerPrice, setTotalMerPrice] = useState(0);
   const [totalAlbumPrice, setTotalalbumPrice] = useState(0);
 
+<<<<<<< HEAD
   const cartmerchandise = useSelector((state) => state.cart.cartmerchandise);
 
   const cartalbums = useSelector((state) => state.cart.cartalbums);
+=======
+  const cartMerchandise = useSelector((state) => state.cart.cartmerchandise);
+
+  const cartAlbums = useSelector((state) => state.cart.cartalbums);
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
   // console.log(cartBandAlbums);
 
   const incrementMerchandise = (merchandise) => {
@@ -191,7 +197,11 @@ const Cart = () => {
                             {" "}
                             Official Merchandise
                           </h3>
+<<<<<<< HEAD
                           {cartmerchandise.map((merchandise) => (
+=======
+                          {cartMerchandise.map((merchandise) => (
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                             <div className="row mb-4 d-flex justify-content-between align-items-center">
                               <div className="col-md-2 col-lg-2 col-xl-2">
                                 <img
@@ -243,17 +253,29 @@ const Cart = () => {
                             {" "}
                             Official Music Album
                           </h3>
+<<<<<<< HEAD
                           {cartalbums.map((album) => (
                             <div className="row mb-4 d-flex justify-content-between align-items-center">
                               <div className="col-md-2 col-lg-2 col-xl-2">
                                 <img
                                   src={album.ImgA}
+=======
+                          {cartAlbums.map((album) => (
+                            <div className="row mb-4 d-flex justify-content-between align-items-center">
+                              <div className="col-md-2 col-lg-2 col-xl-2">
+                                <img
+                                  src={album.img}
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                                   className="img-fluid rounded-3"
                                   alt="Cotton T-shirt"
                                 />
                               </div>
                               <div className="col-md-3 col-lg-3 col-xl-3">
+<<<<<<< HEAD
                                 <h6 className="text-muted">{album.titleA}</h6>
+=======
+                                <h6 className="text-muted">{album.title}</h6>
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                                 {/* <h6 className="text-black mb-0">
                                   {album.albumYear}
                                 </h6> */}
@@ -269,7 +291,11 @@ const Cart = () => {
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h6 className="mb-0">
+<<<<<<< HEAD
                                   ₹&nbsp;{album.quantity * album.priceA}
+=======
+                                  ₹&nbsp;{album.quantity * album.price}
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                                 </h6>
                               </div>
                               <div className="col-md-1 col-lg-1 col-xl-1 text-end">
@@ -283,14 +309,22 @@ const Cart = () => {
                           <hr className="my-4" />
                           <div className="pt-5">
                             <h6 className="mb-0">
+<<<<<<< HEAD
                               {/* <a
+=======
+                              <a
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                                 style={{ cursor: "pointer" }}
                                 className="text-body"
                                 onClick={storePageHandler}
                               >
                                 <i className="fas fa-long-arrow-alt-left me-2"></i>
                                 Back to shop
+<<<<<<< HEAD
                               </a> */}
+=======
+                              </a>
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                             </h6>
                           </div>
                         </div>
@@ -314,8 +348,13 @@ const Cart = () => {
                             data-mdb-ripple-color="dark"
                             onClick={() =>
                               orderButtonClickHandler(
+<<<<<<< HEAD
                                 cartalbums,
                                 cartmerchandise,
+=======
+                                cartAlbums,
+                                cartMerchandise,
+>>>>>>> b15209e15e89d305bc89ffa2f0be8343866ee723
                                 formattedDate,
                                 totalAlbumPrice,
                                 totalMerPrice
