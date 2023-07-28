@@ -1,15 +1,15 @@
 
+import { Fragment } from "react";
 import Slider from "../Component/ImageSlider/Slider";
 import ProductCard from "./ProductCard";
 
 const Home = () => {
     return  (
-<div>
-<Slider/>
-<ProductCard/>
-</div>
-  
-    )
+<Fragment>
+    <Slider/>
+      <ProductCard />
+    </Fragment>
+  );
 }
 
 export default Home;

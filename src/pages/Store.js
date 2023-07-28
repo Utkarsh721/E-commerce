@@ -12,7 +12,7 @@ import { cartActions } from "../reducer/cartSlice";
 
 const StorePage = () => {
   const merchandise = useSelector((state) => state.cart.merchandise);
-  const albums = useSelector((state) => state.cart.album);
+  const albums = useSelector((state) => state.cart.albums);
   const dispatch = useDispatch();
 
   const addMerchandiseToCart = (merchandise) => {
@@ -34,8 +34,8 @@ const StorePage = () => {
             <Card sx={{ maxWidth: 345 }}>
               <CardMedia
                 sx={{ height: 200 }}
-                image={album.img}
-                title="green iguana"
+                image={album.ImgA}
+                title={album.titleA}
               />
               <CardActions>
                 <Typography size="small">Artist - The Generics</Typography>
@@ -68,9 +68,7 @@ const StorePage = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Typography size="small">
-                  ${merchandise.price}
-                </Typography>
+                <Typography size="small">${merchandise.price}</Typography>
                 <Button
                   size="small"
                   sx={{ ml: 25 }}

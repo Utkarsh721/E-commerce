@@ -6,14 +6,18 @@ import {
 } from "./asyncAuthReducer";
 
 const authSlice = createSlice({
-  name: "user",
-  initialState: {
-    userSignUpData: undefined,
-    userLoginData: undefined,
-    userProfileData: undefined,
-  },
-  reducers: {},
-
+    name: "auth",
+    initialState: {
+      userProfileData: undefined,
+      userLoginData: undefined,
+    },
+    reducers: {
+      userLogout(state, action) {
+        localStorage.removeItem("idToken");
+        state.userLoginData = undefined;
+        state.userProfileData = undefined;
+      },
+    },
   extraReducers: (builder) => {
     builder.addCase(userSignupAction.fulfilled, (state, action) => {
       console.log(6, action.payload);
@@ -33,6 +37,6 @@ const authSlice = createSlice({
 });
 export default authSlice;
 
-export const authSliceActions = authSlice.actions;
+export const authActions = authSlice.actions;
 
 
