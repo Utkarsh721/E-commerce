@@ -9,11 +9,13 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [totalMerPrice, setTotalMerPrice] = useState(0);
   const [totalAlbumPrice, setTotalalbumPrice] = useState(0);
+  console.log(totalAlbumPrice);
+  console.log(totalMerPrice);
 
   const cartmerchandise = useSelector((state) => state.cart.cartmerchandise);
 
   const cartalbums = useSelector((state) => state.cart.cartalbums);
-  // console.log(cartBandAlbums);
+  console.log(cartalbums);
 
   const incrementMerchandise = (merchandise) => {
     dispatch(cartActions.addMerchandiseToCart(merchandise));
@@ -66,11 +68,12 @@ const Cart = () => {
 
   const TotalAmountOfAlbum = () => {
     const totalAmountOfEachAlbumItem = cartalbums.map((album) => {
-      return album.quantity * album.priceA;
+      return album.quantity * album.price;
     });
     const total = totalAmountOfEachAlbumItem.reduce((previous, current) => {
       return previous + current;
     });
+
     setTotalalbumPrice(total);
   };
 
@@ -183,7 +186,7 @@ const Cart = () => {
                             </h1>
                             <h6 className="mb-0 text-muted">
                               Total Items:-
-                              {/* {cartMerchandise.length + cartAlbums.length} */}
+                              {cartmerchandise.length + cartalbums.length}
                             </h6>
                           </div>
                           <hr className="my-4" />
@@ -247,13 +250,13 @@ const Cart = () => {
                             <div className="row mb-4 d-flex justify-content-between align-items-center">
                               <div className="col-md-2 col-lg-2 col-xl-2">
                                 <img
-                                  src={album.ImgA}
+                                  src={album.albumImg}
                                   className="img-fluid rounded-3"
                                   alt="Cotton T-shirt"
                                 />
                               </div>
                               <div className="col-md-3 col-lg-3 col-xl-3">
-                                <h6 className="text-muted">{album.titleA}</h6>
+                                <h6 className="text-muted">{album.title}</h6>
                                 {/* <h6 className="text-black mb-0">
                                   {album.albumYear}
                                 </h6> */}
@@ -269,7 +272,7 @@ const Cart = () => {
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h6 className="mb-0">
-                                  ₹&nbsp;{album.quantity * album.priceA}
+                                  ₹&nbsp;{album.quantity * album.price}
                                 </h6>
                               </div>
                               <div className="col-md-1 col-lg-1 col-xl-1 text-end">
