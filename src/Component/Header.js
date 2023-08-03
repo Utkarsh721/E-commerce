@@ -24,11 +24,11 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userProfileData = useSelector((state) => state.auth.userProfileData);
+  const userData = useSelector((state) => state.auth.userProfileData);
   const cartBandMerchandise = useSelector(
-    (state) => state.cart.cartBandMerchandise
+    (state) => state.cart.cartmerchandise
   );
-  const cartBandAlbums = useSelector((state) => state.cart.cartBandAlbums);
+  const cartBandAlbums = useSelector((state) => state.cart.cartalbums);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -77,24 +77,6 @@ function Navbar() {
     <AppBar position="static" sx={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-         E-commerce
-          </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -154,7 +136,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            The Generics
+            E-Commerce
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
@@ -178,57 +160,69 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Grid sx={{ display: "flex" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  width: 70,
-                  height: 30,
-                  backgroundColor: "#c2c2a3",
-                  border: "0px",
-                  borderRadius: "15px",
-                  mt: "5px",
-                  mr: "5px",
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                    opacity: [0.9, 0.8, 0.7],
-                  },
-                }}
-              >
-                {/* <Badge
-                  badgeContent={
-                    cartBandMerchandise.length + cartBandAlbums.length
-                  }
-                  color="success"
-                > */}
-                <ShoppingCartIcon sx={{ margin: "auto", ml: "8px" }} />
-                {/* </Badge> */}
-                <Typography
+            {userData !== undefined ? (
+              <Grid sx={{ display: "flex" }}>
+                <Box
                   sx={{
-                    margin: "auto",
-                    color: "white",
-                    cursor: "pointer",
-                    mr: "15px",
+                    display: "flex",
+                    width: 70,
+                    height: 30,
+                    backgroundColor: "#c2c2a3",
+                    border: "0px",
+                    borderRadius: "15px",
+                    mt: "5px",
+                    mr: "5px",
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                      opacity: [0.9, 0.8, 0.7],
+                    },
                   }}
                   onClick={cartPageHandler}
                 >
-                  Cart
-                </Typography>
-              </Box>
+                  <Badge
+                    badgeContent={
+                      cartBandMerchandise.length + cartBandAlbums.length
+                    }
+                    color="success"
+                  >
+                    <ShoppingCartIcon sx={{ margin: "auto", ml: "8px" }} />
+                  </Badge>
+                  <Typography
+                    sx={{
+                      margin: "auto",
+                      color: "white",
+                      cursor: "pointer",
+                      mr: "15px",
+                    }}
+                  >
+                    Cart
+                  </Typography>
+                </Box>
 
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-
-            <Typography
-              sx={{ color: "white", cursor: "pointer" }}
-              onClick={signinPageHandler}
-            >
-              Sign in
-            </Typography>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar src="/broken-image.jpg" />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            ) : (
+              <Grid>
+                <Typography
+                  sx={{ color: "white", cursor: "pointer" ,display: { xs: "none", md: "flex" },}}
+                  onClick={signinPageHandler}
+                >
+                  Sign In
+                </Typography>{" "}
+                <Tooltip title="Open settings">
+                  <IconButton sx={{ p: 0 }}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            )}
 
             <Menu
               sx={{ mt: "45px" }}

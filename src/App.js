@@ -23,6 +23,8 @@ import {
   getMerchandiseData,
   getOrderHistoryData,
 } from "./reducer/asyncDataReducer";
+import OrderHistory from "./pages/OrderHistory";
+import FinalOrder from "./pages/FinalOrder";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -85,7 +87,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orderHistory" element={<OrderHistory />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/thankyoupage" element={<FinalOrder />}></Route>
         <Route path="/updateProfile" element={<UpdateProfile />}></Route>
       </Routes>
 
