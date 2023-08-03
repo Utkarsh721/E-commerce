@@ -47,4 +47,8 @@
 //     const response = await apiDataService.getOrderData(localId);
 //     return response;
 //   }
+<<<<<<< HEAD
 // );
+=======
+// );
+>>>>>>> 54cc2870e5a2c297fe1ef9ff3ff0043e8d954ba2
