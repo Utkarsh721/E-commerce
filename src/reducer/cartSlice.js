@@ -18,6 +18,7 @@ import tour2 from "../assets/tour2.jpg";
 import tour3 from "../assets/tour3.jpg";
 import tour4 from "../assets/tour4.jpg";
 import tour5 from "../assets/tour5.jpg";
+import { getAlbumData, getMerchandiseData, getOrderHistoryData } from "./asyncDataReducer";
 
 // import {
 //   getAlbumData,
@@ -25,11 +26,6 @@ import tour5 from "../assets/tour5.jpg";
 //   getOrderHistoryData,
 // } from "./asyncDataReducer";
 
-// import {
-//   getAlbumData,
-//   getMerchandiseData,
-//   getOrderHistoryData,
-// } from "./asyncDataReducer";
 
 const data = [
   {
@@ -225,13 +221,13 @@ const cartSlice = createSlice({
           img: merchandise.img,
         });
       } else {
-        // const existingMerchandiseIdx = state.cartBandMerchandise.findIndex(
-        //   (item) => item.id === existingMerchandise.id
-        // );
+        const existingMerchandiseIdx = state.cartmerchandise.findIndex(
+          (item) => item.id === existingMerchandise.id
+        );
         existingMerchandise.quantity++;
-        // existingMerchandise.productPrice += merchandise.productPrice;
+        existingMerchandise.productPrice += merchandise.productPrice;
       }
-      // console.log(state.cartBandMerchandise);
+      console.log(state.cartmerchandise);
     },
     removeMechandiseFromCart(state, action) {
       state.cartChanged = true;
@@ -241,7 +237,7 @@ const cartSlice = createSlice({
           (item) => item.id === merchandise.id
         );
         state.cartmerchandise[merchandiseIdx].quantity--;
-        // state.cartBandMerchandise[merchandiseIdx].price =
+        // state.cartmerchandise[merchandiseIdx].price =
         // existingMerchandise.price -= merchandise.price;
       } else {
         state.cartmerchandise = state.cartmerchandise.filter(
@@ -267,13 +263,13 @@ const cartSlice = createSlice({
           quantity: 1,
         });
       } else {
-        // const existingAlbumIdx = state.cartBandAlbums.findIndex(
+        // const existingAlbumIdx = state.cartalbums.findIndex(
         //   (item) => item.id === existingAlbum.id
         // );
         existingAlbum.quantity++;
         // existingMerchandise.productPrice += merchandise.productPrice;
       }
-      // console.log(state.cartBandAlbums);
+      // console.log(state.cartalbums);
     },
 
     remvoveAlbumsFromCart(state, action) {
@@ -284,7 +280,7 @@ const cartSlice = createSlice({
           (item) => item.id === album.id
         );
         state.cartalbums[albumIdx].quantity--;
-        // state.cartBandMerchandise[merchandiseIdx].price =
+        // state.cartmerchandise[merchandiseIdx].price =
         // existingMerchandise.price -= merchandise.price;
       } else {
         state.cartalbums = state.cartalbums.filter(
@@ -302,21 +298,21 @@ const cartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // builder.addCase(getMerchandiseData.fulfilled, (state, action) => {
-    //   const response = action.payload.merchandise;
-    //   state.cartmerchandise = response;
-    //   state.cartChanged = false;
-    // });
-    // builder.addCase(getAlbumData.fulfilled, (state, action) => {
-    //   const response = action.payload.album;
-    //   state.cartalbums = response;
-    //   state.cartChanged = false;
-    // });
-    // builder.addCase(getOrderHistoryData.fulfilled, (state, action) => {
-    //   const response = action.payload.order;
-    //   state.orderList = response;
-    //   state.cartChanged = false;
-    // });
+    builder.addCase(getMerchandiseData.fulfilled, (state, action) => {
+      const response = action.payload.merchandise;
+      state.cartmerchandise = response;
+      state.cartChanged = false;
+    });
+    builder.addCase(getAlbumData.fulfilled, (state, action) => {
+      const response = action.payload.albums;
+      state.cartalbums = response;
+      state.cartChanged = false;
+    });
+    builder.addCase(getOrderHistoryData.fulfilled, (state, action) => {
+      const response = action.payload.order;
+      state.orderList = response;
+      state.cartChanged = false;
+    });
   },
 });
 export default cartSlice;
