@@ -28,11 +28,11 @@ import FinalOrder from "./pages/FinalOrder";
 
 function App() {
   const cart = useSelector((state) => state.cart);
-  const cartBandMerchandise = useSelector(
-    (state) => state.cart.cartBandMerchandise
+  const cartmerchandise = useSelector(
+    (state) => state.cart.cartmerchandise
   );
-  const cartBandAlbums = useSelector((state) => state.cart.cartBandAlbums);
-  const cartOrderHistory = useSelector((state) => state.cart.orderList);
+  const cartalbums = useSelector((state) => state.cart.cartalbums);
+  const orderList = useSelector((state) => state.cart.orderList);
   const userData = useSelector((state) => state.auth.userProfileData);
   const dispatch = useDispatch();
 
@@ -40,39 +40,39 @@ function App() {
     dispatch(getUserProfileAction());
   }, []);
 
-  // useEffect(() => {
-  //   if (cart.cartChanged) {
-  //     dispatch(
-  //       addMerchandiseAction({
-  //         userLocalId: userData.localId,
-  //         merchandiseCart: cartBandMerchandise,
-  //       })
-  //     );
-  //     dispatch(
-  //       addAlbumAction({
-  //         userLocalId: userData.localId,
-  //         albumCart: cartBandAlbums,
-  //       })
-  //     );
-  //     dispatch(
-  //       addOrderHistoryAction({
-  //         userLocalId: userData.localId,
-  //         orderCart: cartOrderHistory,
-  //       })
-  //     );
-  //   }
-  // }, [cart]);
+  useEffect(() => {
+    if (cart.cartChanged) {
+      dispatch(
+        addMerchandiseAction({
+          userLocalId: userData.localId,
+          merchandiseCart: cartmerchandise,
+        })
+      );
+      dispatch(
+        addAlbumAction({
+          userLocalId: userData.localId,
+          albumCart: cartalbums,
+        })
+      );
+      dispatch(
+        addOrderHistoryAction({
+          userLocalId: userData.localId,
+          orderCart: orderList,
+        })
+      );
+    }
+  }, [cart]);
 
   useEffect(() => {
     dispatch(getUserProfileAction());
   }, []);
-  // useEffect(() => {
-  //   if (userData) {
-  //     dispatch(getMerchandiseData(userData.localId));
-  //     dispatch(getAlbumData(userData.localId));
-  //     dispatch(getOrderHistoryData(userData.localId));
-  //   }
-  // }, [userData]);
+  useEffect(() => {
+    if (userData) {
+      dispatch(getMerchandiseData(userData.localId));
+      dispatch(getAlbumData(userData.localId));
+      dispatch(getOrderHistoryData(userData.localId));
+    }
+  }, [userData]);
 
   return (
     <Fragment>

@@ -20,8 +20,4 @@ root.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
-<<<<<<< HEAD
 );
-=======
-);
->>>>>>> 54cc2870e5a2c297fe1ef9ff3ff0043e8d954ba2
