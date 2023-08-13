@@ -1,13 +1,13 @@
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { apiDataService } from "../Component/Services/apiDataService";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { apiDataService } from "../Component/Services/apiDataService";
 
-// export const addMerchandiseAction = createAsyncThunk(
-//   "addMerchandiseAction",
-//   async (data) => {
-//     const response = await apiDataService.postMerchandiseData(data);
-//     return response;
-//   }
-// );
+export const addMerchandiseAction = createAsyncThunk(
+  "addMerchandiseAction",
+  async (data) => {
+    const response = await apiDataService.postMerchandiseData(data);
+    return response;
+  }
+);
 
 // export const addAlbumAction = createAsyncThunk(
 //   "addAlbumAction",
@@ -47,8 +47,4 @@
 //     const response = await apiDataService.getOrderData(localId);
 //     return response;
 //   }
-<<<<<<< HEAD
 // );
-=======
-// );
->>>>>>> 54cc2870e5a2c297fe1ef9ff3ff0043e8d954ba2

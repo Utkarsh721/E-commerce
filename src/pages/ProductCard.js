@@ -41,8 +41,4 @@ const ProductCard = () => {
     </Fragment>
   );
 };
-<<<<<<< HEAD
 export default ProductCard;
-=======
-export default ProductCard;
->>>>>>> 54cc2870e5a2c297fe1ef9ff3ff0043e8d954ba2

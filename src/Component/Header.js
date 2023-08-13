@@ -208,11 +208,7 @@ function Navbar() {
             ) : (
               <Grid>
                 <Typography
-<<<<<<< HEAD
-                  sx={{ color: "white", cursor: "pointer" ,display: { xs: "none", md: "flex" },}}
-=======
                   sx={{ color: "white", cursor: "pointer" }}
->>>>>>> 54cc2870e5a2c297fe1ef9ff3ff0043e8d954ba2
                   onClick={signinPageHandler}
                 >
                   Sign In

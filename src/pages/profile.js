@@ -12,7 +12,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const userProfileData = useSelector((state) => state.auth.userProfileData);
   // const localid = userProfileData.localId;
-  // console.log(localid);
+  console.log(userProfileData);
 
   const updateprofileClickHandler = () => {
     navigate("/updateProfile");
