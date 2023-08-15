@@ -6,7 +6,7 @@ import Card from "../Component/Card";
 import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Loader from "../Component/Loader";
+// import Loader from "../Component/Loader";
 import { userSignupAction } from "../reducer/asyncAuthReducer";
 import { useDispatch } from "react-redux";
 
@@ -58,7 +58,7 @@ const Register = () => {
   return (
     <Fragment>
       <ToastContainer />
-        <Loader />
+        {/* <Loader /> */}
       <section className={`container ${styles.auth}`}>
         <Card>
           <div className={styles.form}>

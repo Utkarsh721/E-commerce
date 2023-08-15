@@ -22,8 +22,10 @@ const authSlice = createSlice({
     },
   extraReducers: (builder) => {
     builder.addCase(userSignupAction.fulfilled, (state, action) => {
-      console.log(6, action.payload);
-      state.userSignUpData = action.payload;
+      const response = action.payload;
+      // console.log(6, action.payload);
+      state.userSignUpData = response;
+      localStorage.setItem("idToken", response.idToken);
     });
     builder.addCase(userLoginAction.fulfilled, (state, action) => {
       console.log(6, action.payload);

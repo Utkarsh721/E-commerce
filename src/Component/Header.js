@@ -25,7 +25,7 @@ function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userProfileData);
-  const cartBandMerchandise = useSelector(
+  const cartmerchandise = useSelector(
     (state) => state.cart.cartmerchandise
   );
   const cartBandAlbums = useSelector((state) => state.cart.cartalbums);
@@ -181,7 +181,7 @@ function Navbar() {
                 >
                   <Badge
                     badgeContent={
-                      cartBandMerchandise.length + cartBandAlbums.length
+                      cartmerchandise.length + cartBandAlbums.length
                     }
                     color="success"
                   >
