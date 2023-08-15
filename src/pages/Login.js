@@ -3,15 +3,21 @@ import styles from "./auth.module.css";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../assets/Login.jpg";
 import Card from "../Component/Card";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLoginAction } from "../reducer/asyncAuthReducer";
+import { useEffect } from "react";
 
 const Login = () => {
+  const data= useSelector((state)=>state.auth.userLoginData)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+useEffect(()=>{
+  if (data!==undefined){
+    navigate("/")
+  }
+},[data])
   const loginHandler = (event) => {
     event.preventDefault();
 
