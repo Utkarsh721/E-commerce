@@ -68,7 +68,7 @@ const StorePage = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Typography size="small">${merchandise.price}</Typography>
+                <Typography size="small">Rs.{merchandise.price}</Typography>
                 <Button
                   size="small"
                   sx={{ ml: 25 }}

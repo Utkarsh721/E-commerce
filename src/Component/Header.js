@@ -136,7 +136,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            E-Commerce
+            E-commerce
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button

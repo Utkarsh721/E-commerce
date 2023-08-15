@@ -1,10 +1,8 @@
-import { Fragment, useEffect } from "react";
+import React,{Suspense} from "react";
+import { Fragment, useEffect  } from "react";
 import { Route, Routes } from "react-router-dom";
-import Footer from "./Component/Footer";
-import Header from "./Component/Header";
+import Footer from "./Component/Footer"; 
 import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
 import Store from "./pages/Store";
 import Register from "./pages/Register";
 import Reset from "./pages/Reset";
@@ -25,6 +23,8 @@ import {
 } from "./reducer/asyncDataReducer";
 import OrderHistory from "./pages/OrderHistory";
 import FinalOrder from "./pages/FinalOrder";
+const Header =React.lazy(() => import("./Component/Header"));
+  const About =React.lazy(() => import("./pages/About"));
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -76,10 +76,10 @@ function App() {
 
   return (
     <Fragment>
+       <Suspense fallback={<p className="loading">Loading .....</p>}></Suspense>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/store" element={<Store />} />
         <Route path="/login" element={<Login />} />

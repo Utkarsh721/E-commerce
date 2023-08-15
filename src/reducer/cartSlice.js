@@ -85,13 +85,7 @@ const data = [
     quantity: 1,
   },
 
-  {
-    id: 11,
-    title: "Mobile",
-    img: mobileImg,
-    price: 17588,
-    quantity: 1,
-  },
+
 ];
 
 const album = [
@@ -221,9 +215,9 @@ const cartSlice = createSlice({
           img: merchandise.img,
         });
       } else {
-        const existingMerchandiseIdx = state.cartmerchandise.findIndex(
-          (item) => item.id === existingMerchandise.id
-        );
+        // const existingMerchandiseIdx = state.cartmerchandise.findIndex(
+        //   (item) => item.id === existingMerchandise.id
+        // );
         existingMerchandise.quantity++;
         existingMerchandise.productPrice += merchandise.productPrice;
       }
